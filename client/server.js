@@ -28,7 +28,7 @@ async function start() {
     await client.channel.bindQueue(QUEUE, EXCHANGE, ROUTING_KEY);
     logger.info(" [*] Waiting for messages in %s. To exit press CTRL+C", QUEUE);
     await client.channel.consume(QUEUE, function(msg) {
-        
+        logger.info("Message content: %s", msg.content.toString());
     }, {noAck: true});
 
 }
